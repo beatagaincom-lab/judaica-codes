@@ -7,11 +7,21 @@ gsap.registerPlugin(ScrollTrigger);
 const depth = document.querySelector('[data-depth]');
 const progress = document.querySelector('.scroll-progress');
 const heroVideo = document.querySelector('.hero-video');
+const siteHeader = document.querySelector('.site-header');
+
+const syncHeaderState = () => {
+  siteHeader?.classList.toggle('is-scrolled', window.scrollY > 36);
+};
+
+syncHeaderState();
+window.addEventListener('scroll', syncHeaderState, { passive: true });
 
 window.addEventListener('pointermove', (event) => {
   if (!depth) return;
+
   const x = (event.clientX / window.innerWidth - 0.5) * 2;
   const y = (event.clientY / window.innerHeight - 0.5) * 2;
+
   depth.style.setProperty('--mx', x.toFixed(3));
   depth.style.setProperty('--my', y.toFixed(3));
 });
@@ -20,7 +30,9 @@ ScrollTrigger.create({
   start: 0,
   end: 'max',
   onUpdate: (self) => {
-    if (progress) progress.style.transform = `scaleY(${self.progress})`;
+    if (progress) {
+      progress.style.transform = `scaleY(${self.progress})`;
+    }
   },
 });
 
@@ -31,38 +43,57 @@ if (heroVideo) {
   const heroIntro = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
   heroIntro
-    .set('.idea-cloud', { autoAlpha: 0 })
-    .set('.idea-cloud span', { y: 14, filter: 'blur(10px)' })
+    .set('.floating-ideas', { autoAlpha: 0 })
+    .set('.floating-ideas span', { y: 14, filter: 'blur(10px)' })
     .set('.hero-video', {
-      opacity: 0.12,
+      opacity: 0.18,
       scale: 1.08,
-      filter: 'brightness(0.34) contrast(1.18) saturate(1.02)',
+      filter: 'brightness(0.42) contrast(1.16) saturate(1.08)',
     })
-    .from('.cinematic-brand', {
+    .from('.hero-content .eyebrow', {
       autoAlpha: 0,
-      y: 18,
-      duration: 0.9,
+      y: 16,
+      duration: 0.8,
     })
     .from(
-      '.cinematic-copy h1 span',
+      '.hero-content h1 span',
       {
         autoAlpha: 0,
-        y: 42,
-        filter: 'blur(18px)',
-        duration: 1.15,
-        stagger: 0.22,
+        y: 40,
+        filter: 'blur(16px)',
+        duration: 1.05,
+        stagger: 0.2,
       },
-      '-=0.34',
+      '-=0.3',
     )
     .from(
-      '.cinematic-copy > p:last-child',
+      '.hero-lead',
       {
         autoAlpha: 0,
         y: 18,
         filter: 'blur(8px)',
-        duration: 0.9,
+        duration: 0.8,
       },
-      '-=0.48',
+      '-=0.45',
+    )
+    .from(
+      '.hero-actions .button',
+      {
+        autoAlpha: 0,
+        y: 14,
+        duration: 0.6,
+        stagger: 0.08,
+      },
+      '-=0.3',
+    )
+    .from(
+      '.hero-index',
+      {
+        autoAlpha: 0,
+        x: -18,
+        duration: 0.75,
+      },
+      '-=0.25',
     )
     .call(() => {
       heroVideo.currentTime = 0;
@@ -71,69 +102,53 @@ if (heroVideo) {
     .to(
       '.hero-video',
       {
-        opacity: 0.86,
+        opacity: 0.82,
         scale: 1,
-        filter: 'brightness(1.12) contrast(1.13) saturate(1.18)',
-        duration: 5.2,
+        filter: 'brightness(1.04) contrast(1.12) saturate(1.16)',
+        duration: 4.8,
         ease: 'power2.out',
       },
-      '-=0.15',
+      '-=0.1',
     )
     .to(
       '.hero-video',
       {
-        opacity: 0.54,
-        filter: 'brightness(0.78) contrast(1.12) saturate(1.08)',
-        duration: 3.4,
+        opacity: 0.5,
+        filter: 'brightness(0.76) contrast(1.12) saturate(1.08)',
+        duration: 3.2,
         ease: 'sine.inOut',
       },
-      '+=0.8',
+      '+=0.6',
     )
     .to(
-      '.idea-cloud',
+      '.floating-ideas',
       {
         autoAlpha: 1,
-        duration: 1.1,
+        duration: 1,
       },
-      '-=2.35',
+      '-=2.1',
     )
     .to(
-      '.idea-cloud span',
+      '.floating-ideas span',
       {
         y: 0,
         filter: 'blur(0px)',
-        duration: 1.3,
-        stagger: 0.16,
+        duration: 1.1,
+        stagger: 0.12,
       },
-      '-=2.35',
+      '-=2.1',
     );
 } else {
-  gsap.from('.hero-copy > *', {
-    opacity: 0,
-    y: 28,
-    duration: 1.05,
-    stagger: 0.12,
-    ease: 'power3.out',
-  });
-
-  gsap.from('.hero-note span', {
-    opacity: 0,
-    x: 18,
+  gsap.from('.hero-content > *', {
+    autoAlpha: 0,
+    y: 24,
     duration: 0.8,
     stagger: 0.1,
-    delay: 0.4,
-    ease: 'power2.out',
-  });
-
-  gsap.from('.hero-scroll', {
-    opacity: 0,
-    delay: 0.75,
-    duration: 0.9,
-    ease: 'power2.out',
+    ease: 'power3.out',
   });
 }
 
-gsap.to('.hero-video, .hero-bg img', {
+gsap.to('.hero-video', {
   scale: 1.08,
   scrollTrigger: {
     trigger: '.hero',
@@ -143,20 +158,23 @@ gsap.to('.hero-video, .hero-bg img', {
   },
 });
 
-gsap.utils.toArray('.reveal-card').forEach((item, index) => {
+gsap.utils.toArray('.reveal').forEach((item, index) => {
   ScrollTrigger.create({
     trigger: item,
     start: 'top 84%',
     once: true,
     onEnter: () => {
-      window.setTimeout(() => item.classList.add('is-visible'), (index % 4) * 80);
+      window.setTimeout(() => {
+        item.classList.add('is-visible');
+      }, (index % 5) * 70);
     },
   });
 });
 
-gsap.utils.toArray('.mini-case, .product-grid figure, .service-grid article').forEach((item) => {
+gsap.utils.toArray('.index-card, .work-card, .object-card, .service-panel').forEach((item) => {
   gsap.to(item, {
-    y: -16,
+    y: -10,
+    ease: 'none',
     scrollTrigger: {
       trigger: item,
       start: 'top bottom',
@@ -167,7 +185,7 @@ gsap.utils.toArray('.mini-case, .product-grid figure, .service-grid article').fo
 });
 
 gsap.from('.process-copy li', {
-  opacity: 0,
+  autoAlpha: 0,
   x: 24,
   duration: 0.65,
   stagger: 0.12,
@@ -185,4 +203,8 @@ gsap.utils.toArray('.process-copy li').forEach((step) => {
     end: 'bottom 42%',
     toggleClass: { targets: step, className: 'is-lit' },
   });
+});
+
+window.addEventListener('load', () => {
+  ScrollTrigger.refresh();
 });

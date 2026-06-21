@@ -3,18 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="שושנה דרור - פיתוח מוצרי יודאיקה בני-ייצור" />
+    <meta
+      name="description"
+      content="שושנה דרור - פיתוח ועיצוב מוצרי יודאיקה, מהרעיון ועד קובץ ייצור."
+    />
     <title>שושנה דרור | פיתוח מוצרי יודאיקה</title>
   </head>
   <body>
     <div id="app">
+      <div class="scroll-progress" aria-hidden="true"></div>
+
       <header class="site-header">
-        <a href="#top" class="brand" aria-label="שושנה דרור">
+        <a class="brand" href="#top" aria-label="שושנה דרור">
           <img src="/assets/shoshana-logo.png" alt="" />
           <span>שושנה דרור</span>
         </a>
         <nav aria-label="ניווט ראשי">
-          <a href="#signature">עבודות</a>
+          <a href="#work">עבודות</a>
           <a href="#process">תהליך</a>
           <a href="#schoenfeld">שנפלד</a>
           <a href="#services">שירותים</a>
@@ -22,122 +27,132 @@
         </nav>
       </header>
 
-      <div class="scroll-progress" aria-hidden="true"></div>
-
       <main id="top">
-        <section class="hero hero-cinematic theme-dark" data-depth>
-          <video class="hero-video" muted loop playsinline preload="auto" aria-label="כתר יודאיקה מוזהב מתגלה מתוך חושך">
+        <section class="hero" data-depth>
+          <video class="hero-video" muted loop playsinline preload="auto">
             <source src="/assets/video/hero_b.mp4" type="video/mp4" />
           </video>
-          <div class="hero-video-dim" aria-hidden="true"></div>
-          <div class="cinematic-copy">
-            <p class="cinematic-brand">שושנה דרור</p>
+          <div class="hero-shade" aria-hidden="true"></div>
+          <div class="hero-grain" aria-hidden="true"></div>
+
+          <div class="floating-ideas" aria-hidden="true">
+            <span style="--x: 13%; --y: 30%; --d: 0s">מסורת</span>
+            <span style="--x: 82%; --y: 28%; --d: -2.5s">חומר</span>
+            <span style="--x: 21%; --y: 72%; --d: -5s">אור</span>
+            <span style="--x: 74%; --y: 72%; --d: -1.2s">קובץ ייצור</span>
+            <span style="--x: 50%; --y: 18%; --d: -3.4s">צורה</span>
+          </div>
+
+          <div class="hero-content reveal">
+            <p class="eyebrow">פיתוח ועיצוב מוצרי יודאיקה</p>
             <h1>
               <span>מאחורי כל מוצר</span>
               <span>מסתתר רעיון</span>
             </h1>
-            <p>פיתוח ועיצוב מוצרי יודאיקה — מהרעיון ועד הייצור</p>
-          </div>
-          <div class="idea-cloud" aria-hidden="true">
-            <span style="--x: 12%; --y: 28%; --d: 0s;">מסורת</span>
-            <span style="--x: 78%; --y: 24%; --d: -2.8s;">חומר</span>
-            <span style="--x: 20%; --y: 68%; --d: -5.2s;">אור</span>
-            <span style="--x: 71%; --y: 72%; --d: -1.4s;">קובץ ייצור</span>
-            <span style="--x: 50%; --y: 18%; --d: -3.6s;">צורה</span>
-            <span style="--x: 39%; --y: 79%; --d: -6.1s;">רעיון</span>
-          </div>
-          <div class="hero-bg">
-            <img src="/assets/generated/hero-metal-atelier.png" alt="פרט מתכת אומנותי באווירת אטלייה" />
-          </div>
-          <div class="hero-copy">
-            <p class="eyebrow">פיתוח מוצרי יודאיקה בני-ייצור</p>
-            <h1>שושנה דרור</h1>
-            <p>
-              רעיון יהודי, ערך או סיפור מקבלים צורה מדויקת - מחזון ראשוני ועד
-              מוצר שאפשר לייצר, להציג ולשווק.
+            <p class="hero-lead">
+              רעיון יהודי מקבל צורה מדויקת - מהשפה החזותית, דרך החומר והמבנה,
+              ועד קובץ שהמפעל יכול לייצר.
             </p>
-            <div class="actions">
-              <a class="button filled" href="#signature">לראות עבודות</a>
-              <a class="button quiet" href="#process">איך זה נבנה</a>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#work">לראות עבודות</a>
+              <a class="button button-ghost" href="#process">איך זה נבנה</a>
             </div>
           </div>
-          <aside class="hero-note">
-            <span>Idea</span>
-            <span>Material</span>
-            <span>Production</span>
+
+          <aside class="hero-index reveal">
+            <span>IDEA</span>
+            <span>MATERIAL</span>
+            <span>PRODUCTION</span>
           </aside>
-          <div class="hero-scroll" aria-hidden="true">
-            <span></span>
-            <small>Scroll</small>
-          </div>
         </section>
 
-        <section class="opening section reveal-zone">
-          <div class="opening-kicker reveal-card">
+        <section class="section manifesto" aria-labelledby="manifesto-title">
+          <div class="section-kicker reveal">
             <p class="eyebrow">Positioning</p>
             <span>01 / Brand Essence</span>
           </div>
-          <div class="opening-copy reveal-card">
-            <h2>לא מוצר יפה בלבד. מוצר שיש לו סיבה להתקיים.</h2>
+          <div class="manifesto-copy reveal">
+            <h2 id="manifesto-title">לא מוצר יפה בלבד. מוצר שיש לו סיבה להתקיים.</h2>
             <p>
-              שושנה דרור פועלת בנקודת המפגש שבין תוכן יהודי, שפה חזותית ותכנון
-              יצרני. היא מלווה יזמים, אמנים, מוסדות ויצרנים בפיתוח מוצרים
-              שמכבדים את הרעיון, נראים נכון, ומתאימים לייצור בפועל.
+              שושנה דרור פועלת בנקודת המפגש שבין תוכן יהודי, שפה חזותית ותכנון יצרני.
+              היא מלווה יזמים, אמנים, מוסדות ויצרנים בפיתוח מוצרים שמכבדים את הרעיון,
+              נראים נכון, ומתאימים לייצור בפועל.
             </p>
           </div>
-          <div class="principles">
-            <article class="reveal-card">
-              <span>תוכן</span>
+          <div class="principle-grid">
+            <article class="index-card reveal">
+              <span>01</span>
+              <h3>תוכן</h3>
               <p>הסיפור, הערך או הפסוק שממנו מתחיל המוצר.</p>
             </article>
-            <article class="reveal-card">
-              <span>צורה</span>
+            <article class="index-card is-dark reveal">
+              <span>02</span>
+              <h3>צורה</h3>
               <p>שפה חזותית שמכבדת את הרעיון ואת המשתמש.</p>
             </article>
-            <article class="reveal-card">
-              <span>ביצוע</span>
+            <article class="index-card reveal">
+              <span>03</span>
+              <h3>ביצוע</h3>
               <p>הבנה של חומר, קובץ, ייצור וסדרה.</p>
             </article>
           </div>
         </section>
 
-        <section id="signature" class="signature reveal-zone">
-          <article class="case case-gold">
-            <div class="case-media reveal-card">
-              <img src="/assets/generated/jerusalem-gold-vitrine.png" alt="נזר טקסי מוזהב בהשראת ירושלים" />
-              <div class="image-caption">
-                <span>Object of Honor</span>
-                <span>Gold plated metal</span>
+        <section id="work" class="signature">
+          <div class="signature-media reveal">
+            <img src="/assets/generated/jerusalem-gold-vitrine.png" alt="נזר יודאיקה מוזהב בהשראת ירושלים" />
+            <div class="image-caption">
+              <span>Gold plated metal</span>
+              <span>Object of honor</span>
+            </div>
+          </div>
+          <div class="signature-copy reveal">
+            <p class="eyebrow">Signature Case</p>
+            <h2>ירושלים של זהב</h2>
+            <p>
+              אובייקט טקסי מצופה זהב, מעוצב כפריט הוקרה בעל נוכחות וסמליות.
+              העבודה משלבת תכנון צורני, חיתוך מוקפד, פרטים עשירים וגימור מדויק.
+            </p>
+            <dl class="spec-list">
+              <div>
+                <dt>חומר</dt>
+                <dd>מתכת בציפוי זהב</dd>
               </div>
-            </div>
-            <div class="case-copy reveal-card">
-              <p class="eyebrow">Signature Case</p>
-              <span class="number">01</span>
-              <h2>ירושלים של זהב</h2>
-              <p>
-                נזר טקסי מצופה זהב, מעוצב כפריט הוקרה בעל נוכחות וסמליות.
-                העבודה משלבת תכנון צורני, חיתוך מוקפד, פרטים עשירים וגימור
-                מדויק.
-              </p>
-              <dl>
-                <div>
-                  <dt>חומר</dt>
-                  <dd>מתכת בציפוי זהב</dd>
-                </div>
-                <div>
-                  <dt>תפקיד</dt>
-                  <dd>איור, תכנון מבנה וקבצי ייצור</dd>
-                </div>
-                <div>
-                  <dt>הצגה</dt>
-                  <dd>אובייקט הוקרה לתצוגה</dd>
-                </div>
-              </dl>
-            </div>
-          </article>
+              <div>
+                <dt>תפקיד</dt>
+                <dd>איור, תכנון מבנה וקבצי ייצור</dd>
+              </div>
+              <div>
+                <dt>הצגה</dt>
+                <dd>אובייקט הוקרה לתצוגה</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
 
-          <div class="case-strip">
-            <article class="mini-case reveal-card">
+        <section class="section work-gallery" aria-labelledby="work-gallery-title">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Selected Works</p>
+            <h2 id="work-gallery-title">תיק עבודות שמרגיש כמו אוסף, לא כמו גלריה גנרית.</h2>
+          </div>
+          <div class="work-grid">
+            <article class="work-card reveal">
+              <img src="/assets/generated/pitum-parchment-embossed.png" alt="גוויל מעוטר בהטבעה אמנותית" />
+              <div>
+                <p class="eyebrow">Embossing</p>
+                <h3>פיטום הקטורת</h3>
+                <p>גוויל מעוטר בהטבעה, מוכן לכתיבת סופר סת"ם.</p>
+              </div>
+            </article>
+            <article class="work-card work-card-feature reveal">
+              <img src="/assets/generated/vitraj-industrial-ceiling.png" alt="תקרת ויטראז' תעשייתית" />
+              <div>
+                <p class="eyebrow">Architectural Judaica</p>
+                <h3>תקרת ויטראז'</h3>
+                <p>חזון אמנותי מורכב מקבל פתרון בר-ביצוע.</p>
+              </div>
+            </article>
+            <article class="work-card reveal">
               <img src="/assets/generated/metal-portrait-series.png" alt="דיוקן מתכת בחיתוך לייזר" />
               <div>
                 <p class="eyebrow">Wall Art</p>
@@ -145,30 +160,11 @@
                 <p>צילום וזהות מתורגמים לקווים, חללים ואור.</p>
               </div>
             </article>
-            <article class="mini-case reveal-card">
-              <img src="/assets/generated/vitraj-industrial-ceiling.png" alt="תקרת ויטראז' תעשייתית" />
-              <div>
-                <p class="eyebrow">Industrial Translation</p>
-                <h3>תקרת ויטראז'</h3>
-                <p>חזון אומנותי מורכב מקבל פתרון בר-ביצוע.</p>
-              </div>
-            </article>
-            <article class="mini-case reveal-card">
-              <img src="/assets/generated/pitum-parchment-embossed.png" alt="גויל מעוטר בהטבעה אומנותית" />
-              <div>
-                <p class="eyebrow">Embossing</p>
-                <h3>פיטום הקטורת</h3>
-                <p>גויל מעוטר בהטבעה, מוכן לכתיבת סופר סת״ם.</p>
-              </div>
-            </article>
           </div>
         </section>
 
-        <section id="process" class="process theme-dark reveal-zone">
-          <div class="process-media reveal-card">
-            <img src="/assets/generated/process-atelier-workbench.png" alt="שולחן עבודה עם סקיצות, חומרים וקובצי ייצור" />
-          </div>
-          <div class="process-copy reveal-card">
+        <section id="process" class="process">
+          <div class="process-copy reveal">
             <p class="eyebrow">Process</p>
             <h2>מהרעיון ועד קובץ שהמפעל יכול לעבוד איתו.</h2>
             <ol>
@@ -190,54 +186,57 @@
               </li>
             </ol>
           </div>
+          <div class="process-media reveal">
+            <img src="/assets/generated/process-atelier-workbench.png" alt="שולחן עבודה עם סקיצות, חומרים וקבצי ייצור" />
+          </div>
         </section>
 
-        <section id="schoenfeld" class="schoenfeld section reveal-zone">
-          <div class="section-head reveal-card">
+        <section id="schoenfeld" class="section collection">
+          <div class="collection-head reveal">
             <p class="eyebrow">Collaboration</p>
             <h2>שנפלד - פיתוח סדרות מוצרי יודאיקה.</h2>
             <p>
               במסגרת שיתוף פעולה עם שנפלד - מתנות יוקרה, שושנה ליוותה פיתוח
-              מוצרים חדשים משלב ההשראה ועד קובצי הייצור.
+              מוצרים חדשים משלב ההשראה ועד קבצי הייצור.
             </p>
           </div>
-          <div class="product-grid">
-            <figure class="reveal-card">
+          <div class="collection-grid">
+            <figure class="object-card reveal">
               <img src="/assets/generated/schoenfeld-honey-dish.png" alt="דבשיה מודרנית מאקריל וזהב" />
               <figcaption>דבשיות לראש השנה</figcaption>
             </figure>
-            <figure class="reveal-card">
+            <figure class="object-card object-card-feature reveal">
               <img src="/assets/generated/schoenfeld-havdala-tray.png" alt="מגש הבדלה מודרני מאקריל וזהב" />
               <figcaption>מגשי הבדלה</figcaption>
             </figure>
-            <figure class="reveal-card">
+            <figure class="object-card reveal">
               <img src="/assets/generated/schoenfeld-bencher-stand.png" alt="סטנד לברכונים מאקריל וזהב" />
               <figcaption>סטנדים לברכונים</figcaption>
             </figure>
           </div>
-          <p class="credit reveal-card">
-            המוצרים פותחו במסגרת עבודתה של שושנה עבור חברת שנפלד. הקרדיט על
-            המותג, השיווק והייצור שייך לחברת שנפלד.
+          <p class="credit reveal">
+            המוצרים פותחו במסגרת עבודתה של שושנה עבור חברת שנפלד. הקרדיט על המותג,
+            השיווק והייצור שייך לחברת שנפלד.
           </p>
         </section>
 
-        <section id="services" class="services section reveal-zone">
-          <div class="section-head reveal-card">
+        <section id="services" class="section services">
+          <div class="section-heading reveal">
             <p class="eyebrow">Services</p>
             <h2>שלושה סוגי ליווי לפי אופי העבודה.</h2>
           </div>
           <div class="service-grid">
-            <article class="reveal-card">
+            <article class="service-panel reveal">
               <span>01</span>
               <h3>פרויקטים בתכנון ועיצוב שלי</h3>
               <p>מוצרים שמתפתחים משלב הרעיון ועד למוצר המוגמר.</p>
             </article>
-            <article class="reveal-card">
+            <article class="service-panel is-dark reveal">
               <span>02</span>
               <h3>שותפה לפיתוח פרויקטים</h3>
               <p>פיתוח מוצר, קבצי ייצור ופתרון אתגרי ביצוע עבור אמנים ויזמים.</p>
             </article>
-            <article class="reveal-card">
+            <article class="service-panel reveal">
               <span>03</span>
               <h3>שירותי פיתוח ליצרנים</h3>
               <p>שדרוג רעיונות, התאמה לטכנולוגיות ותכנון מדויק לייצור סדרתי.</p>
@@ -245,22 +244,22 @@
           </div>
         </section>
 
-        <section class="testimonials theme-dark reveal-zone">
-          <div class="testimonial-frame reveal-card">
+        <section class="quote-band">
+          <div class="quote-frame reveal">
             <blockquote>
               “בודדים יודעים להביא עבודה שבפעם אחת אפשר להוריד לעבודה בלי תיקונים ובעיות.”
             </blockquote>
-            <cite>יודי ברוינר, אמן קונסטרוקציה אומנותית</cite>
+            <cite>יודי ברוינר, אמן קונסטרוקציה אמנותית</cite>
           </div>
         </section>
 
-        <section id="contact" class="contact section reveal-zone">
-          <div class="reveal-card">
+        <section id="contact" class="section contact">
+          <div class="contact-copy reveal">
             <p class="eyebrow">Start</p>
             <h2>יש רעיון למוצר יהודי חדש?</h2>
             <p>אפשר להתחיל משיחה על התוכן, החומר, הקהל והדרך להפוך אותו למוצר.</p>
           </div>
-          <a class="button filled dark-button" href="mailto:hello@example.com">לתיאום שיחה</a>
+          <a class="button button-dark reveal" href="mailto:hello@example.com">לתיאום שיחה</a>
         </section>
       </main>
     </div>
