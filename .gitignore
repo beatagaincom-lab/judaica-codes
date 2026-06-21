@@ -1,0 +1,8 @@
+node_modules/
+dist/
+output/
+.vite-server.pid
+.env
+.env.*
+.DS_Store
+Thumbs.db
